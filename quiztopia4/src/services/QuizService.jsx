@@ -19,6 +19,9 @@ function QuizService({ category, start, setStart, score, setScore }) {
           id: uuidv4(),
           question: he.decode(item.question),
           correct_answer: he.decode(item.correct_answer),
+          incorrect_answers: item.incorrect_answers.map((answer) =>
+            he.decode(answer)
+          ),
         }));
 
         setQuestions(decodedQuestions);
