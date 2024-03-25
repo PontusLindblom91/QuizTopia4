@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import QuizContainer from "../containers/QuizContainer";
 import Question from "../components/Question";
-import he from 'he';
-
-
+import he from "he";
 
 function QuizService({ category, start, setStart, score, setScore }) {
   const [questions, setQuestions] = useState([]);
@@ -20,6 +18,7 @@ function QuizService({ category, start, setStart, score, setScore }) {
           ...item,
           id: uuidv4(),
           question: he.decode(item.question),
+          correct_answer: he.decode(item.correct_answer),
         }));
 
         setQuestions(decodedQuestions);
